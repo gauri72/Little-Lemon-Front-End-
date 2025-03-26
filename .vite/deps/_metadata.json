@@ -1,0 +1,40 @@
+{
+  "hash": "729e30c0",
+  "configHash": "82e54abd",
+  "lockfileHash": "72ad7f19",
+  "browserHash": "a16c84cd",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "f6626619",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "0a6d56f7",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "59e5628c",
+      "needsInterop": false
+    },
+    "react-datepicker": {
+      "src": "../../node_modules/react-datepicker/dist/index.es.js",
+      "file": "react-datepicker.js",
+      "fileHash": "a4427ce9",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-5UN2WQEG": {
+      "file": "chunk-5UN2WQEG.js"
+    },
+    "chunk-AK4TLUUY": {
+      "file": "chunk-AK4TLUUY.js"
+    }
+  }
+}

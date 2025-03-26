@@ -1,0 +1,574 @@
+.reservations {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.reservations::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background-image: url('../assets/Logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  transform: rotate(15deg);
+}
+
+.reservations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.reservations-form-section {
+  background-color: #495E57;
+  color: white;
+  padding: 2rem 6rem;
+}
+
+.reservations-display-section {
+  background-color: white;
+  padding: 3rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reservations h1 {
+  color: #F4CE14;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-family: 'Markazi Text', serif;
+}
+
+.seating-options {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.seating-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.seating-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.seating-option label {
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.2rem;
+}
+
+select {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+select:focus {
+  outline: 2px solid #F4CE14;
+}
+
+.date-picker-container {
+  position: relative;
+  width: 100%;
+}
+
+.date-picker-container .icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  z-index: 2;
+  pointer-events: none;
+  color: #333;
+}
+
+.date-picker-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem !important;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  background-color: white;
+  cursor: pointer;
+  height: 48px;
+}
+
+.date-picker-input::placeholder {
+  color: #333;
+  opacity: 1;
+}
+
+.date-picker-input:focus {
+  outline: 2px solid #F4CE14;
+}
+
+/* Override react-datepicker styles */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container {
+  width: 100%;
+}
+
+/* Hide the default calendar icon in Chrome */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+/* Match the height of select inputs */
+.date-picker-input {
+  height: 48px; /* This matches the height of select inputs */
+}
+
+/* Calendar Popup Styles */
+.reservation-calendar {
+  font-family: inherit;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.react-datepicker__header {
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 0.8rem;
+}
+
+.react-datepicker__current-month {
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+}
+
+.react-datepicker__day-names {
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  margin-bottom: -8px;
+  padding: 0.5rem 0;
+}
+
+.react-datepicker__day-name {
+  color: #666;
+  font-weight: 500;
+}
+
+.react-datepicker__month {
+  background-color: white;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.react-datepicker__day {
+  color: #333;
+  border-radius: 4px;
+  margin: 0.2rem;
+  width: 2rem;
+  line-height: 2rem;
+}
+
+.react-datepicker__day--selected {
+  background-color: #495E57;
+  color: white;
+  font-weight: bold;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: rgba(73, 94, 87, 0.5);
+  color: white;
+}
+
+.react-datepicker__day:hover {
+  background-color: rgba(73, 94, 87, 0.2);
+}
+
+.react-datepicker__day--disabled {
+  color: #ccc;
+}
+
+.warning-message {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.warning-message-light {
+  background-color: rgba(255, 0, 0, 0.05);
+  color: #d32f2f;
+  border: 1px solid rgba(211, 47, 47, 0.2);
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Input styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 1rem 1rem 1rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 1rem;
+  height: 48px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+  outline: 2px solid #F4CE14;
+}
+
+/* Reservation Summary */
+.reservation-summary {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}
+
+.summary-item .icon {
+  position: static;
+  font-size: 1.2rem;
+}
+
+/* Special Requests */
+.special-requests textarea {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+  margin-top: 0.5rem;
+}
+
+.special-requests textarea:focus {
+  outline: 2px solid #F4CE14;
+}
+
+/* Privacy Policy */
+.privacy-policy {
+  margin: 1.5rem 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Confirm Button */
+.confirm-button {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 2rem auto 0;
+  padding: 1rem 2rem;
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 16px;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.confirm-button:hover {
+  background-color: #E1BD13;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .reservation-summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .summary-item {
+    justify-content: flex-start;
+  }
+}
+
+.reservation-popper {
+  z-index: 1000;
+}
+
+.react-datepicker-popper {
+  z-index: 1000;
+}
+
+.restaurant-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.restaurant-image:hover {
+  transform: scale(1.05);
+}
+
+.reserve-button {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 2rem auto 0;
+  padding: 1rem 2rem;
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 16px;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.reserve-button:hover {
+  background-color: #E1BD13;
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .reservations-form-section,
+  .reservations-display-section {
+    padding: 2rem 4rem;
+  }
+  
+  .restaurant-images {
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .reservations-form-section,
+  .reservations-display-section {
+    padding: 2rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .seating-options {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .restaurant-images {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .restaurant-image {
+    height: 300px;
+  }
+
+  .reserve-button {
+    max-width: 100%;
+  }
+
+  .reservation-summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .summary-item {
+    justify-content: flex-start;
+  }
+}
+
+.success-section {
+  background-color: white;
+  padding: 4rem 2rem;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-message {
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.success-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.success-message h2 {
+  color: #495E57;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'Markazi Text', serif;
+}
+
+.success-message p {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.reservation-details {
+  background-color: #f8f8f8;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.confirmation-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.confirmation-summary .summary-item {
+  color: #333;
+  justify-content: center;
+}
+
+.confirmation-summary .icon {
+  position: static;
+  font-size: 1.2rem;
+}
+
+.new-reservation-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 16px;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin-top: 2rem;
+}
+
+.new-reservation-button:hover {
+  background-color: #E1BD13;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .success-section {
+    padding: 2rem 1rem;
+  }
+
+  .success-message {
+    padding: 1.5rem;
+  }
+
+  .confirmation-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .confirmation-summary .summary-item {
+    justify-content: flex-start;
+  }
+} 
